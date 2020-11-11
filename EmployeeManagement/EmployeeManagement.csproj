@@ -5,10 +5,38 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20201031133730_SeedMMigration.cs" />
+    <Compile Remove="Migrations\20201031133730_SeedMMigration.Designer.cs" />
+    <Compile Remove="Migrations\20201031134346_NewSeed.cs" />
+    <Compile Remove="Migrations\20201031134346_NewSeed.Designer.cs" />
+    <Compile Remove="Migrations\20201108020743_Seed2Migration.cs" />
+    <Compile Remove="Migrations\20201108020743_Seed2Migration.Designer.cs" />
+    <Compile Remove="Migrations\20201108021613_seed3.cs" />
+    <Compile Remove="Migrations\20201108021613_seed3.Designer.cs" />
+    <Compile Remove="Migrations\20201108022249_Seed4.cs" />
+    <Compile Remove="Migrations\20201108022249_Seed4.Designer.cs" />
+    <Compile Remove="Migrations\20201108062610_Seed1.cs" />
+    <Compile Remove="Migrations\20201108062610_Seed1.Designer.cs" />
+    <Compile Remove="Migrations\20201108063339_seed1.cs" />
+    <Compile Remove="Migrations\20201108063339_seed1.Designer.cs" />
+    <Compile Remove="Migrations\20201108084558_OneSeed.cs" />
+    <Compile Remove="Migrations\20201108084558_OneSeed.Designer.cs" />
+    <Compile Remove="Migrations\20201108085433_Seed2.cs" />
+    <Compile Remove="Migrations\20201108085433_Seed2.Designer.cs" />
+    <Compile Remove="Migrations\20201108085908_Seed2Updated.cs" />
+    <Compile Remove="Migrations\20201108085908_Seed2Updated.Designer.cs" />
+    <Compile Remove="Migrations\20201108090302_Seed3.cs" />
+    <Compile Remove="Migrations\20201108090302_Seed3.Designer.cs" />
+    <Compile Remove="Migrations\20201108091524_InitialSeedData.cs" />
+    <Compile Remove="Migrations\20201108091524_InitialSeedData.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\html\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.9">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
