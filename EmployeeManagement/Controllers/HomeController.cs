@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EmployeeManagement.Controllers
 {
@@ -23,6 +24,7 @@ namespace EmployeeManagement.Controllers
             _hostEnvironment = hostEnvironment;
         }
 
+        [AllowAnonymous]
         public ViewResult Index()
         {
             return View(_employeeRepo.GetEmployeeList());
@@ -30,7 +32,6 @@ namespace EmployeeManagement.Controllers
 
         public ViewResult Details(int? id)
         {
-            throw new Exception("details exception");
             Employee model = _employeeRepo.GetEmployeeById(id.Value);
             if(model == null)
             {
@@ -54,6 +55,7 @@ namespace EmployeeManagement.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Create(EmployeeCreateViewModel employeeCreateViewModel)
         {
             if (ModelState.IsValid)
@@ -73,6 +75,7 @@ namespace EmployeeManagement.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ViewResult Edit(int employeeid)
         {
 

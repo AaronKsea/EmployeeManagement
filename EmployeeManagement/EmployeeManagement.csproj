@@ -29,6 +29,8 @@
     <Compile Remove="Migrations\20201108090302_Seed3.Designer.cs" />
     <Compile Remove="Migrations\20201108091524_InitialSeedData.cs" />
     <Compile Remove="Migrations\20201108091524_InitialSeedData.Designer.cs" />
+    <Compile Remove="Migrations\20201208050938_Extend_IdentityUser.cs" />
+    <Compile Remove="Migrations\20201208050938_Extend_IdentityUser.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
