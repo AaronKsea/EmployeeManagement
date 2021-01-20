@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<IdentityRole>
+@inject IAuthorizationService authorizationService;
 
 @{
     ViewBag.Title = "All Roles";
@@ -18,10 +19,25 @@
                 <h5 class="card-title">@role.Name</h5>
             </div>
             <div class="card-footer ">
-                <a asp-action="EditRoles" 
-                   asp-controller="Administration" 
-                   asp-route-RoleId="@role.Id" class="btn btn-primary">Edit</a>
-                <a href="#" class="btn btn-primary">Delete</a>
+                <form method="post" asp-action="DeleteRole" asp-route-Id="@role.Id">
+                    @*@if (!(await authorizationService.AuthorizeAsync(User, "EditRolePolicy")).Succeeded)*@
+                    @*{*@
+                    <a asp-action="EditRoles"
+                       asp-controller="Administration"
+                       asp-route-RoleId="@role.Id" class="btn btn-primary">Edit</a>
+                    @* } *@
+                    <span id="confirmDeleteSpan_@role.Id" style="display:none">
+                        Are you sure you want to delete role: @role.Name ?
+                        <button type="submit" class="btn btn-danger">Yes</button>
+                        <a class="btn btn-primary" onclick="confirmDelete('@role.Id',false)">No</a>
+                    </span>
+                    @if ((await authorizationService.AuthorizeAsync(User, "DeleteRolePolicy")).Succeeded)
+                    {
+                        <span id="deleteSpan_@role.Id">
+                            <a class="btn btn-danger" onclick="confirmDelete('@role.Id',true)">Delete</a>
+                        </span>
+                    }
+                </form>
             </div>
         </div>
     }
@@ -39,4 +55,8 @@ else
             <a class="btn btn-primary" style="width:auto" asp-action="CreateRole" asp-controller="Administration">Create Role</a>
         </div>
     </div>
+}
+
+@section Scripts {
+    <script src="~/js/CustomJavaScript.js"></script>
 }
